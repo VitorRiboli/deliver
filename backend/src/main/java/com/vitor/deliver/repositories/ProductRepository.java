@@ -11,4 +11,6 @@ import com.vitor.deliver.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
 	List<Product> findAllByOrderByNameAsc();
+	
+	List<Product> findAll();
 }

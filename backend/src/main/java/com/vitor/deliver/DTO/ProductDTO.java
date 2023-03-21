@@ -5,11 +5,9 @@ import java.io.Serializable;
 import com.vitor.deliver.entities.Product;
 
 public class ProductDTO implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String name;
 	private Double price;
@@ -21,7 +19,6 @@ public class ProductDTO implements Serializable{
 	}
 
 	public ProductDTO(Long id, String name, Double price, String description, String imageUri) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;

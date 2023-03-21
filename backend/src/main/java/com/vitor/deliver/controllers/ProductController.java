@@ -12,7 +12,7 @@ import com.vitor.deliver.DTO.ProductDTO;
 import com.vitor.deliver.services.ProductService;
 
 @RestController
-@RequestMapping(name = "/products")
+@RequestMapping(value = "/products")
 public class ProductController {
 	
 	@Autowired
