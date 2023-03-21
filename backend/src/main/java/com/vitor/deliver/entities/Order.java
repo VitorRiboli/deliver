@@ -21,10 +21,12 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String address;
 	private Double latitude;
 	private Double longitude;
 	private Instant moment;
+	
 	private OrderStatus status;
 
 	@ManyToMany // Muitos para Muitos
