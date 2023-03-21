@@ -8,25 +8,33 @@ import java.util.Set;
 
 import com.vitor.deliver.entities.enums.OrderStatus;
 
+import jakarta.persistence.*;
+
 //Serializable é uma boa medida para que os itens da classe possam ser transformados
 //em uma sequência de bites
-
-public class Order implements Serializable{
+@Entity // Anotation que marca que será uma entidade gerenciada pela JPA
+@Table(name = "tb_order")
+public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String address;
 	private Double latitude;
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
-	
-	
+
+	@ManyToMany // Muitos para Muitos
+	@JoinTable(name = "tb_order_product", joinColumns = @JoinColumn(name = "order_id"), // Chave Estrangeira que referência está classe"Order"
+			inverseJoinColumns = @JoinColumn(name = "product_id") // CE que referência a outra classe
+	)
 	private Set<Product> products = new HashSet<>();
-	//Implementar somente a relação unidirecional
-	//O pedido conhece a coleção de produtos
-	//Product será simplificado a implementação bidirecional
+	// Implementar somente a relação unidirecional
+	// O pedido conhece a coleção de produtos
+	// Product será simplificado a implementação bidirecional
 
 	public Order() {
 		super();
@@ -111,6 +119,4 @@ public class Order implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 
-	
-	
 }

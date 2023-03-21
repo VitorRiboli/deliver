@@ -3,13 +3,20 @@ package com.vitor.deliver.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.*;
+
+
 //Serializable é uma boa medida para que os itens da classe possam ser transformados
 //em uma sequência de bites
 //Também é um padrão do JAVA, mantém-se o padrão por boa medida
+@Entity //Anotation que marca que será uma entidade gerenciada pela JPA
+@Table(name = "tb_product")
 public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Double price;
