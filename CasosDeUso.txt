@@ -1,0 +1,21 @@
+casos de uso:
+
+Primeiro Cenário: Registrar Pedido
+
+1[OUT]: O sistema mostra uma listagem com nome, preço, descrição e foto de todos produtos.
+ Ordenados por nome.
+
+2[IN]: O cliente seleciona os produtos desejados e informa a localização de entrega do pedido.
+
+3[OUT]: O sistema informa o código do pedido.
+
+Segundo Cenário: Entregar pedido
+
+1[OUT]: O sistema informa uma listagem contendo código, valor total, tempo, itens, dos pedidos pendentes.
+ Ordenados por ordem do mais antigo para o mais recente.
+
+2[IN]: O entregador seleciona um pedido.
+
+3[OUT]: O sistema informa um mapa com a rota até a localização de entrega.
+
+4[IN]: O entregador informa a entrega do pedido.
