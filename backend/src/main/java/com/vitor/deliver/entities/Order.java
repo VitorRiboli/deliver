@@ -29,7 +29,7 @@ public class Order implements Serializable {
 	
 	private OrderStatus status;
 
-	@ManyToMany // Muitos para Muitos
+	@ManyToMany(fetch = FetchType.EAGER) // Muitos para Muitos
 	@JoinTable(name = "tb_order_product", joinColumns = @JoinColumn(name = "order_id"), // Chave Estrangeira que referência está classe"Order"
 			inverseJoinColumns = @JoinColumn(name = "product_id") // CE que referência a outra classe
 	)
