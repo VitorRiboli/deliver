@@ -9,18 +9,41 @@ Deliver é um sistema completo para web e dispositivos móveis desenvolvido dura
 Essa plataforma permite aos usuários selecionem itens e façam um pedido colocando seu endereço de entrega, a baixa da entrega e feita pelo aplicativo mobile.
 
 ## Layout mobile
-![Mobile 1](https://imgur.com/5kZkGlW)
+![Mobile 1](https://github.com/VitorRiboli/deliver/blob/main/assets/mobile.png)
 
 ## Layout web
-![Web 1](https://imgur.com/yXq1uY8)
+![Web 1](https://github.com/VitorRiboli/deliver/blob/main/assets/home.png)
 
-![Web 2](https://imgur.com/eWtDDyi)
+![Web 2](https://github.com/VitorRiboli/deliver/blob/main/assets/list.png)
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/devsuperior/sds2/blob/master/assets/modelo-conceitual.png)
+![Modelo Conceitual](https://github.com/VitorRiboli/deliver/blob/main/assets/modelo-conceitual.png)
 
 ## Camadas
-![Modelo Conceitual](https://github.com/devsuperior/sds2/blob/master/assets/camadas.png)
+![Modelo Conceitual](https://github.com/VitorRiboli/deliver/blob/main/assets/camadas.png)
+
+## Casos de Uso
+casos de uso:
+
+Primeiro Cenário: Registrar Pedido
+
+1[OUT]: O sistema mostra uma listagem com nome, preço, descrição e foto de todos produtos.
+ Ordenados por nome.
+
+2[IN]: O cliente seleciona os produtos desejados e informa a localização de entrega do pedido.
+
+3[OUT]: O sistema informa o código do pedido.
+
+Segundo Cenário: Entregar pedido
+
+1[OUT]: O sistema informa uma listagem contendo código, valor total, tempo, itens, dos pedidos pendentes.
+ Ordenados por ordem do mais antigo para o mais recente.
+
+2[IN]: O entregador seleciona um pedido.
+
+3[OUT]: O sistema informa um mapa com a rota até a localização de entrega.
+
+4[IN]: O entregador informa a entrega do pedido.
 
 # Tecnologias utilizadas
 ## Back end
