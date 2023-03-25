@@ -1,0 +1,17 @@
+.button-primary {
+  height: 70px;
+  width: 235px;
+  background-color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  border:  none;
+  cursor: pointer;
+  color: var(--light-color);
+}
+
+.button-primary:hover  {
+  background-color: var(--primary-hover-color);
+}

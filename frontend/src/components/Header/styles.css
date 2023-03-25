@@ -5,8 +5,9 @@
 }
 
 .nav-container {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .nav-logo{
@@ -23,5 +24,14 @@
   color: var(--light-color);
   font-size: 24px;
   font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .nav-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
