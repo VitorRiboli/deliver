@@ -1,0 +1,17 @@
+.listing-main {
+  background-color: var(--light-color);
+}
+
+.listing-card {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+

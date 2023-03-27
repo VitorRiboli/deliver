@@ -1,0 +1,66 @@
+.step-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-color);
+
+}
+
+.step-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.step-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.step-subtitle span {
+  color: var(--primary-color);
+}
+
+.step-subtitle strong {
+  font-weight: bold;
+  color: #000;
+}
+
+.step-card {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 25px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+}
+
+@media (max-width: 960px) {
+  .step-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  .step-title {
+    font-size: 20px;
+  }
+  .step-subtitle {
+    font-size: 16px;
+  }
+  .step-card {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+}
+
+
+

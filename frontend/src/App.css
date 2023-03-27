@@ -6,11 +6,12 @@
   --dark-color: #263238;
   --secondary-color: #9E9E9E;
   --light-color: #F5F5F5;
+  --white-color: #fff;
 }
 
 html, body {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 body {
