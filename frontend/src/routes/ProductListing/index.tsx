@@ -6,6 +6,8 @@ import pizzaIcon from "../../assets/img/pizza.svg";
 import CardBox from "../../components/ProductCard";
 import ProductCard from "../../components/ProductCard";
 import { useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../utils/system";
 
 
 
@@ -13,7 +15,11 @@ import { useEffect } from "react";
 export default function ProductListing() {
 
   useEffect(() => {
-    
+    axios.get(`${BASE_URL}/products`)  
+      .then(res => {
+        console.log(res)
+      })
+
   }, [])
 
 
