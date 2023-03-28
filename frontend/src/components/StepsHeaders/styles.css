@@ -1,8 +1,14 @@
+.stepheader-container {
+  display: flex;
+  justify-content: center;
+}
+
 .step-container {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1280px;
+
   padding: 0 20px;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,13 +17,13 @@
 }
 
 .step-title {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--primary-color);
 }
 
 .step-subtitle {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--secondary-color);
 }
@@ -34,7 +40,7 @@
 .step-card {
   background-color: var(--primary-color);
   color: var(--white-color);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   padding: 15px 25px;
   text-align: center;

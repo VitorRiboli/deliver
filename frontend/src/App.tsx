@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./routes/Home";
-import Listing from "./routes/Listing";
+import ProductListing from "./routes/ProductListing";
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Header />}>
             <Route index element={<Home />}/>
             <Route path="home" element={<Home />}/>
-            <Route path="orders" element={<Listing />}/>
+            <Route path="orders" element={<ProductListing />}/>
 
           
           
