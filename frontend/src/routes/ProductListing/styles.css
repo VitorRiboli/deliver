@@ -22,8 +22,7 @@
 .orders-list-container {
   display: flex;
   justify-content: center;
-
-  margin-bottom: 100px;
+  margin-top: 30px;
 }
 
 .orders-list-items {

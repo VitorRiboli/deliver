@@ -11,6 +11,7 @@ import pizzaIcon from "../../assets/img/pizza.svg";
 
 import { Product } from "../../utils/types";
 import { findAllProducts } from "../../services/product-service";
+import OrderLocation from "../../components/OrderLocation";
 
 export default function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,12 +26,13 @@ export default function ProductListing() {
       });
   }, []);
 
-  console.log(products)
+  console.log(products);
 
   return (
-    <>
+    <main className="orders-container">
       <StepsHeaders />
-      <main className="orders-list-container">
+      
+      <div className="orders-list-container">
         <section className="orders-list-items">
           {products.map((product) => (
             <ProductCard
@@ -42,10 +44,10 @@ export default function ProductListing() {
             />
           ))}
         </section>
-      </main>
+      </div>
 
-      <Footer />
-      <Outlet />
-    </>
+      <OrderLocation />
+
+    </main>
   );
 }
