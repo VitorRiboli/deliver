@@ -13,6 +13,8 @@ import { Product } from "../../utils/types";
 import { findAllProducts } from "../../services/product-service";
 import OrderLocation from "../../components/OrderLocation";
 
+
+
 export default function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -26,7 +28,6 @@ export default function ProductListing() {
       });
   }, []);
 
-  console.log(products);
 
   return (
     <main className="orders-container">
