@@ -5,6 +5,7 @@ import AsyncSelect from "react-select/async";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
 import { fetchLocalMapBox } from "../../services/product-service";
+import { OrderLocationData } from "../../utils/types";
 
 
 
@@ -22,7 +23,12 @@ type Place = {
   } 
 }
 
-export default function OrderLocation() {
+type Props = {
+  onChangeLocation: (location: OrderLocationData) => void;
+
+}
+
+export default function OrderLocation( { onChangeLocation } : Props ) {
 
   const [address, setAddress] = useState<Place>({
     position: initialPosition
@@ -47,13 +53,13 @@ export default function OrderLocation() {
   
   const handleChangeSelect = (place: Place) => {
     setAddress(place);
-    /*
+    
     onChangeLocation({
       latitude: place.position.lat,
       longitude: place.position.lng,
-      address: place.label!
+      address: place.label! //Exclamação é para dizer que realmente existe o address, caso tire dará erro
     });
-    */
+  
   };
 
 

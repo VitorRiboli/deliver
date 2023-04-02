@@ -9,7 +9,7 @@ import ProductCard from "../../components/ProductCard";
 
 import pizzaIcon from "../../assets/img/pizza.svg";
 
-import { Product } from "../../utils/types";
+import { OrderLocationData, Product } from "../../utils/types";
 import { findAllProducts } from "../../services/product-service";
 import OrderLocation from "../../components/OrderLocation";
 
@@ -17,6 +17,7 @@ import OrderLocation from "../../components/OrderLocation";
 
 export default function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
 
   useEffect(() => {
     findAllProducts()
@@ -47,7 +48,7 @@ export default function ProductListing() {
         </section>
       </div>
 
-      <OrderLocation />
+      <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
 
     </main>
   );
