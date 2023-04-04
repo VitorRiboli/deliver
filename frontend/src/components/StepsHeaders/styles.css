@@ -1,19 +1,17 @@
 .stepheader-container {
   display: flex;
   justify-content: center;
+  background-color: #fff;
+  margin-bottom: 30px;
+  padding: 0 20px;
 }
 
 .step-container {
   width: 100%;
-  max-width: 1280px;
-
-  padding: 0 20px;
-  
+  max-width: 1280px;  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--white-color);
-
 }
 
 .step-title {

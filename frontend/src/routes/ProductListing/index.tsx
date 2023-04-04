@@ -12,8 +12,7 @@ import pizzaIcon from "../../assets/img/pizza.svg";
 import { OrderLocationData, Product } from "../../utils/types";
 import { findAllProducts } from "../../services/product-service";
 import OrderLocation from "../../components/OrderLocation";
-
-
+import OrderSummary from "../../components/OrderSummary";
 
 export default function ProductListing() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -29,27 +28,31 @@ export default function ProductListing() {
       });
   }, []);
 
-
   return (
-    <main className="orders-container">
-      <StepsHeaders />
-      
-      <div className="orders-list-container">
-        <section className="orders-list-items">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              imageUri={product.imageUri}
-              price={product.price}
-              description={product.description}
-            />
-          ))}
-        </section>
-      </div>
+    <>
+      <main className="orders-container">
+        <StepsHeaders />
 
-      <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
+        <div className="orders-list-container">
+          <section className="orders-list-items">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                imageUri={product.imageUri}
+                price={product.price}
+                description={product.description}
+              />
+            ))}
+          </section>
+        </div>
 
-    </main>
+        <OrderLocation
+          onChangeLocation={(location) => setOrderLocation(location)}
+        />
+        <OrderSummary />
+      </main>
+      <Footer />
+    </>
   );
 }
