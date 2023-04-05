@@ -1,16 +1,29 @@
+type Props = {
+  amount: number;
+  totalPrice: number;
+}
 
+function formatPrice(price : number) {
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2
+  });
 
-export default function OrderSummary() {
+  return formatter.format(price);
+}
+
+export default function OrderSummary( {amount, totalPrice} : Props) {
   return (
     <main className="order-summary-container">
       <div className="order-summary-content">
         <div>
           <span className="amount-selected-container">
-            <strong className="amount-selected">2</strong>
+            <strong className="amount-selected">{amount}</strong>
             PEDIDOS SELECIONADOS
           </span>
           <span className="order-summary-total">
-            <strong className="amount-selected">R$ 50,00</strong>
+            <strong className="amount-selected">{formatPrice(totalPrice)}</strong>
             VALOR TOTAL
           </span>
         </div>

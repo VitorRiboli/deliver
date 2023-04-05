@@ -70,7 +70,12 @@ export default function ProductListing() {
         <OrderLocation
           onChangeLocation={(location) => setOrderLocation(location)}
         />
-        <OrderSummary />
+        <OrderSummary 
+          amount={selectedProducts.length} 
+          totalPrice={ selectedProducts.reduce((sum, item) => {
+            return sum + item.price
+          }, 0) }
+        />
       </main>
 
       <Footer />
