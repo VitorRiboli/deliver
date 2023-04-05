@@ -14,9 +14,16 @@ import { findAllProducts } from "../../services/product-service";
 import OrderLocation from "../../components/OrderLocation";
 import OrderSummary from "../../components/OrderSummary";
 
+import { checkIsSelected } from "./helpers";
+
 export default function ProductListing() {
+
   const [products, setProducts] = useState<Product[]>([]);
+
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
+
 
   useEffect(() => {
     findAllProducts()
@@ -28,6 +35,20 @@ export default function ProductListing() {
       });
   }, []);
 
+   
+  const handleSelectProduct = (product: Product) => {
+
+    const isAlreadySelected = checkIsSelected(selectedProducts, product);
+
+    if (isAlreadySelected) {
+      const selected = selectedProducts.filter(item => item.id !== product.id);
+      setSelectedProducts(selected);
+    } else {
+      setSelectedProducts(previous => [...previous, product]);
+    }
+  }
+
+
   return (
     <>
       <main className="orders-container">
@@ -36,12 +57,11 @@ export default function ProductListing() {
         <div className="orders-list-container">
           <section className="orders-list-items">
             {products.map((product) => (
-              <ProductCard
+              <ProductCard  
                 key={product.id}
-                name={product.name}
-                imageUri={product.imageUri}
-                price={product.price}
-                description={product.description}
+                product={product}
+                onSelectProduct={handleSelectProduct}  
+                isSelected={checkIsSelected(selectedProducts, product)}             
               />
             ))}
           </section>
@@ -52,6 +72,7 @@ export default function ProductListing() {
         />
         <OrderSummary />
       </main>
+
       <Footer />
     </>
   );

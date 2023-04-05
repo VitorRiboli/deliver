@@ -1,10 +1,10 @@
+import { Product } from "../../utils/types";
 import "./styles.css";
 
 type Props = {
-  name: string;
-  imageUri: string;
-  price: number;
-  description: string;
+  product: Product;
+  onSelectProduct: (product : Product) => void;
+  isSelected: boolean;
 };
 
 function formatPrice(price : number) {
@@ -18,17 +18,20 @@ function formatPrice(price : number) {
 }
 
 
-export default function ProductCard({ ...props }: Props) {
+export default function ProductCard({ onSelectProduct, product, isSelected }: Props) {
   return (
-    <div className="order-card-container">
-      <h3 className="order-card-title">{props.name}</h3>
-      <img src={props.imageUri} className="order-card-img" alt="imagem" />
+    <div 
+      className={`order-card-container ${isSelected ? "selected" : ""}`}
+      onClick={() => onSelectProduct(product)}
+    >
+      <h3 className="order-card-title">{product.name}</h3>
+      <img src={product.imageUri} className="order-card-img" alt="imagem" />
       <h3 className="order-card-price">
-        <span>{formatPrice(props.price)}</span>
+        <span>{formatPrice(product.price)}</span>
       </h3>
       <div className="order-card-description">
         <h3>Descrição</h3>
-        <p>{props.description}</p>
+        <p>{product.description}</p>
       </div>
     </div>
   );
