@@ -8,7 +8,6 @@ import { fetchLocalMapBox } from "../../services/product-service";
 import { OrderLocationData } from "../../utils/types";
 
 
-
 const initialPosition = {
   lat: -29.7624454,
   lng: -51.1385077
@@ -25,8 +24,9 @@ type Place = {
 
 type Props = {
   onChangeLocation: (location: OrderLocationData) => void;
-
 }
+
+
 
 export default function OrderLocation( { onChangeLocation } : Props ) {
 

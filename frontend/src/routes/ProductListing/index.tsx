@@ -31,6 +31,7 @@ export default function ProductListing() {
         setProducts(res.data);
       })
       .catch((err) => {
+        toast.warning('Erro ao Listar Produtos')
         console.log(err);
       });
   }, []);
@@ -55,12 +56,13 @@ export default function ProductListing() {
       products: productsIds
     }
   
-    saveOrder(payload).then(() => { //Promisse da requisição
-      toast.error('Pedido enviado com sucesso!'); //Usando o Toast error para combinar com o layout
+    saveOrder(payload).then((res) => { //Promisse da requisição
+      toast.error(`Pedido enviado com sucesso! Nº ${res.data.id}`); //Usando o Toast error para combinar com o layout
       setSelectedProducts([]); //Após enviar com sucesso, limpa a lista de produtos selecionados
+   
     }).catch(() => {
         toast.warning('Erro ao enviar pedido'); //Em caso de erro
-      })
+    })
   }
 
   return (
