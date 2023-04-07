@@ -6,15 +6,15 @@ import { Outlet } from "react-router-dom";
 import Footer from "../../components/Footer";
 import StepsHeaders from "../../components/StepsHeaders";
 import ProductCard from "../../components/ProductCard";
-
-import pizzaIcon from "../../assets/img/pizza.svg";
-
-import { OrderLocationData, Product } from "../../utils/types";
-import { findAllProducts } from "../../services/product-service";
 import OrderLocation from "../../components/OrderLocation";
 import OrderSummary from "../../components/OrderSummary";
 
+import { OrderLocationData, Product } from "../../utils/types";
+import { findAllProducts, saveOrder } from "../../services/product-service";
 import { checkIsSelected } from "./helpers";
+import { toast } from "react-toastify";
+
+
 
 export default function ProductListing() {
 
@@ -48,6 +48,20 @@ export default function ProductListing() {
     }
   }
 
+  const handleSubmit = () => {
+    const productsIds = selectedProducts.map(({ id }) => ({ id }));
+    const payload = {
+      ...orderLocation!,
+      products: productsIds
+    }
+  
+    saveOrder(payload).then(() => { //Promisse da requisição
+      toast.error('Pedido enviado com sucesso!'); //Usando o Toast error para combinar com o layout
+      setSelectedProducts([]); //Após enviar com sucesso, limpa a lista de produtos selecionados
+    }).catch(() => {
+        toast.warning('Erro ao enviar pedido'); //Em caso de erro
+      })
+  }
 
   return (
     <>
@@ -75,6 +89,7 @@ export default function ProductListing() {
           totalPrice={ selectedProducts.reduce((sum, item) => {
             return sum + item.price
           }, 0) }
+          onSubmit={handleSubmit}
         />
       </main>
 

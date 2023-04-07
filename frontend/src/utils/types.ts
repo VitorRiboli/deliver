@@ -12,3 +12,10 @@ export type OrderLocationData = {
   address: string
 }
 
+type ProducId = {
+  id: number;
+}
+
+export type OrderPayload = {
+  products: ProducId[];
+} & OrderLocationData; //Recebe o tipo ed OrderLocationData, como herança
